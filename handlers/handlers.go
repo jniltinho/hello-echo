@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"context"
 	"hello-echo/templates"
 	"net/http"
 
@@ -17,9 +16,11 @@ func Hello(c echo.Context) error {
 func HelloName(c echo.Context) error {
 	title := "Hello:" + c.Param("name")
 	name := c.Param("name")
-	return templates.Index(title, name).Render(context.Background(), c.Response().Writer)
+	//return templates.Index(title, name).Render(context.Background(), c.Response().Writer)
+	return render(c, templates.Index(title, name))
 }
 
 func Pong(c echo.Context) error {
-	return templates.Index("Pong", "FuncPong").Render(context.Background(), c.Response().Writer)
+	//return templates.Index("Pong", "FuncPong").Render(context.Background(), c.Response().Writer)
+	return render(c, templates.Index("Pong", "FuncPong"))
 }
