@@ -1,6 +1,4 @@
-package templates
-
-
+package layout
 
 templ header(title string) {
 	<head><title>{ title }</title></head>
@@ -23,13 +21,12 @@ templ contentPage(title string, body templ.Component) {
 	</html>
 }
 
-
-
-templ Index(title, name string) {
+templ Base(title string){
 	<html>
-		@header(title)
+        @header(title)
 		<body>
-			<h1>Hello World: { name }</h1>
+			{ children... }
 		</body>
 	</html>
+
 }
